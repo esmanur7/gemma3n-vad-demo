@@ -24,7 +24,7 @@ vad_model, utils = torch.hub.load("snakers4/silero-vad", "silero_vad", trust_rep
 (get_speech_timestamps, _, _, _, _) = utils
 
 #Whisper (CPU)
-asr = WhisperModel("tiny", device="cpu", compute_type="int8")
+asr = WhisperModel("small", device="cpu", compute_type="int8")
 
 def speech_to_text(file_path):
     segments, _ = asr.transcribe(
