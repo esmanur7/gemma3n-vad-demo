@@ -38,7 +38,7 @@ model, tokenizer = FastModel.from_pretrained(
     model_name="unsloth/gemma-3-1b-it-unsloth-bnb-4bit",
     dtype=torch.float32,
     load_in_4bit=True,
-    device_map={"": "cpu"},   # 🔹 model tamamen CPU'da
+    device_map={"": "cpu"},   # model tamamen CPU'da
 )
 
 
@@ -77,3 +77,11 @@ _ = model.generate(
     streamer=streamer
 )
 
+'''
+             OUTPUT:
+Bu ses dosyasında 2 konuşma bölümü tespit edildiğini ve bununla ilgili olası açıklamaları ve anlamlarını açıklayalım: 
+**Olayın Şekli:** 
+* **Yanlış Tanıma:** Ses dosyasındaki iki bölümün, gerçekte bir konuşmanın *partikülatör* (sözlük) veya *temsil* olarak algılanması. Yani, o ses, aslında bir konuşma değil, 
+bir sonraki konuşmanın başlangıcını temsil ediyor. 
+***Çözüm:** Ses sistemi, dil modelinin yetersizliği nedeniyle bu tür bir hata yapmıştır
+'''
