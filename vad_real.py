@@ -24,7 +24,7 @@ vad_model, utils = torch.hub.load("snakers4/silero-vad", "silero_vad", trust_rep
 (get_speech_timestamps, _, _, _, _) = utils
 
 #Whisper (CPU)
-asr = WhisperModel("small", device="cpu", compute_type="int8")
+asr = WhisperModel("base", device="cpu", compute_type="int8")
 
 def speech_to_text(file_path):
     segments, _ = asr.transcribe(
@@ -36,9 +36,10 @@ def speech_to_text(file_path):
 
 #Gemma (GGUF, CPU)
 llm = Llama(
-    model_path="/home/esma/models/gemma/gemma-2b.gguf",
+    model_path="/home/esma/models/gemma3n/gemma-3n-E2B-it-Q4_K_M.gguf",
     n_threads=6,
-    n_ctx=2048
+    n_ctx=4096
+    n_batch=2048  #daha hızlı token
 )
 
 def chat(history):
