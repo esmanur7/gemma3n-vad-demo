@@ -68,6 +68,8 @@ for k, v in inputs.items():
 
 streamer = TextStreamer(tokenizer, skip_prompt=True)
 
+print("model cevabı: \n")
+
 _ = model.generate(
     **inputs,
     max_new_tokens=128,
